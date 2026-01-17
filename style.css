@@ -3095,6 +3095,17 @@ ul {
   }
 
   /* Influencer Section Mobile - Just Images */
+  .influencer-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+    margin-top: 0.5rem;
+    height: auto !important;
+    /* Override desktop fixed height */
+  }
+
   .influencer-card {
     min-height: auto;
     padding: 0;
@@ -3157,6 +3168,11 @@ ul {
     margin-top: 0 !important;
     padding-top: 0 !important;
     margin-bottom: 2rem;
+  }
+
+  /* Hide '...and others' text on mobile */
+  #influencer-feature .influencer-section p {
+    display: none !important;
   }
 
   .influencer-header {
