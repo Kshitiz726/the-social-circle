@@ -2759,11 +2759,11 @@ ul {
     font-size: 0.95rem;
   }
 
-  /* Service Features - Force Stacked Layout */
+  /* Service Features - Force Stacked Layout (Visual First) */
   .service-feature,
   .service-feature:nth-child(even),
   .service-feature:nth-child(odd) {
-    flex-direction: column !important;
+    flex-direction: column-reverse !important;
     gap: 3rem;
   }
 
