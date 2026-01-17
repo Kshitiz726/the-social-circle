@@ -2977,7 +2977,8 @@ ul {
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 0;
+    /* Seamless gap */
     height: auto !important;
   }
 
@@ -3003,6 +3004,38 @@ ul {
 
   #content-video-carousel .carousel-video {
     object-fit: cover;
+  }
+
+  /* Mobile Video Controls - Hide all except play */
+  .custom-video-player .progress-container,
+  .custom-video-player .mute-btn {
+    display: none !important;
+  }
+
+  /* Seamless merged video container */
+  .video-carousel {
+    background: linear-gradient(180deg, rgba(20, 20, 20, 0.9) 0%, rgba(10, 10, 10, 1) 100%);
+    border-radius: 20px;
+    padding: 0.5rem;
+    box-shadow:
+      0 20px 60px rgba(0, 0, 0, 0.6),
+      0 0 40px rgba(124, 58, 237, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+
+  /* Smooth border radius for top video */
+  .carousel-slide:first-child .custom-video-player {
+    border-radius: 16px 16px 8px 8px;
+  }
+
+  /* Smooth border radius for bottom video */
+  .carousel-slide:last-child .custom-video-player {
+    border-radius: 8px 8px 16px 16px;
+  }
+
+  /* Only one video? Full radius */
+  .carousel-slide:only-child .custom-video-player {
+    border-radius: 16px;
   }
 
   /* Influencer Section Mobile */
@@ -3103,8 +3136,8 @@ ul {
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
-    /* Space between stacked videos */
+    gap: 0;
+    /* Seamless gap */
     height: auto !important;
   }
 
