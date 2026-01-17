@@ -3096,14 +3096,8 @@ ul {
 
   /* Influencer Section Mobile - Just Images */
   .influencer-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-    width: 100%;
-    margin-top: 0.5rem;
-    height: auto !important;
-    /* Override desktop fixed height */
+    display: none !important;
+    /* Hide influencer photos on mobile as requested */
   }
 
   .influencer-card {
