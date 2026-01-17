@@ -3027,6 +3027,9 @@ ul {
   .carousel-slide:first-child .custom-video-player {
     border-radius: 16px 16px 0 0;
     position: relative;
+    margin-bottom: -20px;
+    /* Overlap with next video */
+    z-index: 2;
   }
 
   /* Fade-out effect on bottom of top video */
@@ -3036,8 +3039,8 @@ ul {
     bottom: 0;
     left: 0;
     right: 0;
-    height: 60px;
-    background: linear-gradient(to bottom, transparent, rgba(10, 10, 10, 1));
+    height: 80px;
+    background: linear-gradient(to bottom, transparent 0%, rgba(10, 10, 10, 0.95) 100%);
     pointer-events: none;
     z-index: 5;
   }
@@ -3046,6 +3049,7 @@ ul {
   .carousel-slide:last-child .custom-video-player {
     border-radius: 0 0 16px 16px;
     position: relative;
+    z-index: 1;
   }
 
   /* Fade-in effect on top of bottom video */
@@ -3055,8 +3059,8 @@ ul {
     top: 0;
     left: 0;
     right: 0;
-    height: 60px;
-    background: linear-gradient(to top, transparent, rgba(10, 10, 10, 1));
+    height: 80px;
+    background: linear-gradient(to top, transparent 0%, rgba(10, 10, 10, 0.95) 100%);
     pointer-events: none;
     z-index: 5;
   }
@@ -3064,11 +3068,19 @@ ul {
   /* Only one video? Full radius, no fades */
   .carousel-slide:only-child .custom-video-player {
     border-radius: 16px;
+    margin-bottom: 0;
   }
 
   .carousel-slide:only-child .custom-video-player::before,
   .carousel-slide:only-child .custom-video-player::after {
     display: none;
+  }
+
+  /* Unified video container appearance */
+  .carousel-wrapper {
+    background: rgba(10, 10, 10, 1);
+    border-radius: 20px;
+    overflow: hidden;
   }
 
   /* Influencer Section Mobile */
