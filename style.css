@@ -2997,12 +2997,15 @@ ul {
   }
 
   /* Fix Content Creation Video in Mobile - Match Influencer Style */
-  /* Mobile Typography Overrides - Keep reasonable size */
+  /* Mobile Typography Overrides - Ensure one line & tight spacing */
   .feature-content h3,
   #influencer-feature h3,
   .subsection-title {
-    font-size: 2.5rem !important;
-    line-height: 1.2;
+    font-size: 2rem !important;
+    /* Smaller to prevent wrapping */
+    line-height: 1.1;
+    margin-bottom: 0.5rem !important;
+    /* Reduce vertical gap */
   }
 
   #content-video-carousel {
