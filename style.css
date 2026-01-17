@@ -3094,62 +3094,48 @@ ul {
     z-index: 5;
   }
 
-  /* Only one video? Full radius, no fades */
-  .carousel-slide:only-child .custom-video-player {
-    border-radius: 16px;
-    margin-bottom: 0;
-  }
-
-  .carousel-slide:only-child .custom-video-player::before,
-  .carousel-slide:only-child .custom-video-player::after {
-    display: none;
-  }
-
-  /* Unified video container appearance */
-  .carousel-wrapper {
-    background: rgba(10, 10, 10, 1);
-    border-radius: 20px;
-    overflow: hidden;
-  }
-
-  /* Influencer Section Mobile */
-  .influencer-grid {
-    display: flex;
-    flex-wrap: wrap;
-    /* Allow wrapping */
-    justify-content: center;
-    /* Center the items */
-    gap: 1rem;
-    /* Balanced gap */
-    width: 100%;
-    margin-top: 0.5rem;
-    /* Tight top margin */
-  }
-
+  /* Influencer Section Mobile - Just Images */
   .influencer-card {
+    min-height: auto;
     padding: 0;
     background: transparent !important;
     border: none !important;
     box-shadow: none !important;
     width: auto;
-    min-height: auto;
+    margin: 0;
+  }
+
+  .influencer-header {
+    flex-direction: column;
+    gap: 0;
+    width: auto;
+  }
+
+  /* Hide name and followers on mobile - JUST IMAGES as requested */
+  .influencer-info {
+    display: none !important;
+  }
+
+  .influencer-header img {
+    margin: 0;
+    /* Reset margin */
   }
 
   .influencer-card img {
-    width: 85px;
-    height: 85px;
+    width: 70px;
+    /* Slightly smaller for 4 in a row or keeps 2x2 nice */
+    height: 70px;
     border: none;
     border-radius: 50%;
     /* Premium Mobile Look: Angular Gradient Border Effect */
     background: padding-box linear-gradient(#121212, #121212), border-box linear-gradient(135deg, #7c3aed, #2563eb, #a855f7);
     border: 3px solid transparent;
-    padding: 3px;
+    padding: 2px;
     box-shadow:
       0 0 15px rgba(124, 58, 237, 0.3),
       inset 0 0 10px rgba(0, 0, 0, 0.5);
     object-fit: cover;
-    /* Ensure nice separation */
-    margin: 0.25rem;
+    margin: 0;
   }
 
   /* Reduce gaps in influencer section text */
@@ -3161,15 +3147,16 @@ ul {
   }
 
   #influencer-feature .feature-desc {
-    margin-bottom: 0.75rem !important;
-    /* Reduced from 1.5rem */
-    font-size: 0.9rem;
+    margin-bottom: 1rem !important;
+    /* Reduced */
+    font-size: 0.95rem;
     line-height: 1.4;
   }
 
   #influencer-feature .influencer-section {
     margin-top: 0 !important;
     padding-top: 0 !important;
+    margin-bottom: 2rem;
   }
 
   .influencer-header {
