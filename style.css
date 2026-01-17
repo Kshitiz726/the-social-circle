@@ -3025,17 +3025,50 @@ ul {
 
   /* Smooth border radius for top video */
   .carousel-slide:first-child .custom-video-player {
-    border-radius: 16px 16px 8px 8px;
+    border-radius: 16px 16px 0 0;
+    position: relative;
+  }
+
+  /* Fade-out effect on bottom of top video */
+  .carousel-slide:first-child .custom-video-player::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: linear-gradient(to bottom, transparent, rgba(10, 10, 10, 1));
+    pointer-events: none;
+    z-index: 5;
   }
 
   /* Smooth border radius for bottom video */
   .carousel-slide:last-child .custom-video-player {
-    border-radius: 8px 8px 16px 16px;
+    border-radius: 0 0 16px 16px;
+    position: relative;
   }
 
-  /* Only one video? Full radius */
+  /* Fade-in effect on top of bottom video */
+  .carousel-slide:last-child .custom-video-player::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: linear-gradient(to top, transparent, rgba(10, 10, 10, 1));
+    pointer-events: none;
+    z-index: 5;
+  }
+
+  /* Only one video? Full radius, no fades */
   .carousel-slide:only-child .custom-video-player {
     border-radius: 16px;
+  }
+
+  .carousel-slide:only-child .custom-video-player::before,
+  .carousel-slide:only-child .custom-video-player::after {
+    display: none;
   }
 
   /* Influencer Section Mobile */
