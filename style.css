@@ -3031,14 +3031,14 @@ ul {
   }
 
   /* Reduced dimensions for stacked videos */
+  /* Reduced dimensions for stacked videos */
   #influencer-video-carousel .custom-video-player {
-    height: 280px;
-    /* Reduced height as requested */
+    height: 250px;
+    /* Compact height */
     width: 100%;
     border-radius: 16px;
     margin: 0 auto;
-    max-width: 320px;
-    /* Prevent them from being too wide if screen is large phone */
+    /* Removed max-width to allow full width usage */
   }
 
   /* Ensure video element fits */
