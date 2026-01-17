@@ -2864,34 +2864,45 @@ ul {
     max-width: 120px;
   }
 
-  /* Testimonials */
+  /* Testimonials Moving Horizontally */
   .testimonial-scroll-container {
-    gap: 1rem;
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 1.5rem;
+    padding-bottom: 2rem;
+    -webkit-overflow-scrolling: touch;
   }
 
   .testimonial-column {
-    min-width: 280px;
+    display: contents;
+    /*Flatten columns to let items flow */
+  }
+
+  /* Extract items from columns visually using flex order or just ensure they are all direct children if possible, 
+     but since they are in columns in HTML, we might need a horizontal Scroll snap on the Columns themselves 
+     OR we rely on the user scrolling columns. Better: Make columns full width and scroll snap them? 
+     No, user wants items moving. 
+     Best approach with current HTML: Scroll snap the columns. */
+
+  .testimonial-scroll-container {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+  }
+
+  .testimonial-column {
+    display: flex;
+    flex-direction: column;
+    min-width: 85vw;
+    /* Almost full screen width cards */
+    scroll-snap-align: center;
+    gap: 1.5rem;
   }
 
   .testimonial-card {
-    padding: 1.25rem;
-  }
-
-  .testimonial-text {
-    font-size: 0.9rem;
-  }
-
-  .author-img {
-    width: 40px;
-    height: 40px;
-  }
-
-  .author-info h4 {
-    font-size: 0.9rem;
-  }
-
-  .author-info span {
-    font-size: 0.75rem;
+    min-height: auto;
+    /* Let content dictate */
   }
 
   /* Packages */
@@ -2905,6 +2916,139 @@ ul {
 
   .package-list li {
     font-size: 0.9rem;
+  }
+
+  /* Team Section */
+  .team-grid {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+    margin: 3rem 0;
+    gap: 2.5rem;
+  }
+
+  .team-img-wrapper {
+    height: 350px;
+    /* Tall cinematic feel on mobile */
+  }
+
+  /* Fix content Creation Video in Mobile */
+  #content-video-carousel .custom-video-player {
+    height: 400px;
+    /* Reduced specific height for mobile */
+  }
+
+  #content-video-carousel .carousel-wrapper {
+    max-width: 260px;
+    /* Narrower to fit with padding */
+  }
+
+  /* Influencer Section Mobile */
+  .influencer-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* Show 2x2 grid */
+    gap: 1rem !important;
+  }
+
+  .influencer-card {
+    min-height: auto;
+    padding: 1rem;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .influencer-header {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .influencer-header img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .influencer-info {
+    text-align: center;
+  }
+
+  /* Influencer Video Size */
+  #influencer-video-carousel .custom-video-player {
+    height: 350px;
+    /* Even smaller for consistency */
+  }
+
+  #influencer-video-carousel .carousel-wrapper {
+    max-width: 220px;
+  }
+
+  /* Social Management Dashboard Mobile Fix */
+  .dashboard-visual {
+    height: auto;
+    perspective: none;
+    display: block;
+    margin-top: 2rem;
+    padding: 0 1rem;
+    transform: none !important;
+    /* Disable 3D tilt on mobile */
+  }
+
+  .dashboard-card {
+    transform: none;
+    /* Flatten */
+    width: 100%;
+    height: auto;
+    min-height: 250px;
+    padding: 1.5rem;
+  }
+
+  /* Reposition Badges to not overlap or float weirdly */
+  .floating-badge {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    display: inline-flex;
+    margin-bottom: 1rem;
+    width: calc(50% - 0.5rem);
+    justify-content: center;
+    transform: none !important;
+    animation: none;
+    background: rgba(40, 40, 40, 0.8);
+  }
+
+  .badge-1,
+  .badge-2 {
+    margin: 0 0 1rem 0;
+  }
+
+  /* Container for badges to sit side-by-side above graph */
+  .dashboard-visual::before {
+    content: '';
+    /* Hacky, but instead let's just use flex on the container if possible. 
+      The HTML structure is siblings. We can display flex the container. */
+  }
+
+  .dashboard-visual {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .dashboard-card {
+    width: 100%;
+    order: 3;
+  }
+
+  .badge-1 {
+    order: 1;
+    margin-right: 0.5rem;
+  }
+
+  .badge-2 {
+    order: 2;
+    margin-left: 0.5rem;
   }
 
   /* Team Section */
