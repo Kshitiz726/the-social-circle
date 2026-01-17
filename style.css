@@ -1054,29 +1054,26 @@ ul {
   display: none;
 }
 
-/* Desktop Influencer Image Styling - Premium Brand Look */
+/* Desktop Influencer Image Styling - Minimal Premium */
 .influencer-card img {
   width: 75px;
   height: 75px;
   border-radius: 50%;
-  /* Double layer border effect */
-  border: 2px solid rgba(20, 20, 20, 1);
-  /* Inner spacing */
-  outline: 2px solid var(--accent-primary);
-  /* Outer ring */
-  outline-offset: 2px;
-  background: #1a1a1a;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  /* Subtle ring offset for layer depth */
+  outline: 1px solid transparent;
+  background: #151515;
   object-fit: cover;
   flex-shrink: 0;
-  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  transition: all 0.5s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
 .influencer-card:hover img {
-  transform: scale(1.15) rotate(3deg);
-  outline-color: #fff;
-  box-shadow: 0 0 30px rgba(124, 58, 237, 0.5);
-  outline-width: 3px;
+  transform: scale(1.08);
+  /* Smoother scale */
+  border-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 25px rgba(124, 58, 237, 0.25);
 }
 
 .influencer-info {
@@ -1523,25 +1520,26 @@ ul {
 
 .floating-badge {
   position: absolute;
-  background: rgba(30, 30, 30, 0.9);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 0.8rem 1.2rem;
-  border-radius: 16px;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+  background: rgba(20, 20, 20, 0.85);
+  /* Darker, more solid */
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.75rem 1.25rem;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
   animation: float 6s ease-in-out infinite;
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.85rem;
   z-index: 10;
   transition: transform 0.3s ease;
 }
 
 .floating-badge:hover {
   animation-play-state: paused;
-  transform: scale(1.1) rotate(-5deg);
-  border-color: var(--accent-primary);
-  box-shadow: 0 0 30px rgba(124, 58, 237, 0.4);
+  transform: translateY(-5px) scale(1.02);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
 }
 
 .floating-badge h5 {
@@ -1553,9 +1551,16 @@ ul {
 
 .floating-badge span {
   display: block;
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #fff;
+  font-size: 1.25rem;
+  /* Larger */
+  font-weight: 800;
+  /* Bolder */
+  background: var(--gradient-text);
+  /* Stylish Gradient */
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-top: 0.1rem;
 }
 
 .badge-icon {
@@ -3226,7 +3231,6 @@ ul {
     object-fit: cover;
   }
 
-  /* Social Management Dashboard Mobile Fix */
   .dashboard-visual {
     height: auto;
     perspective: none;
@@ -3235,6 +3239,11 @@ ul {
     padding: 0 1rem;
     transform: none !important;
     /* Disable 3D tilt on mobile */
+  }
+
+  /* Hide Total Reach & Growth header on mobile as requested */
+  .dashboard-header {
+    display: none !important;
   }
 
   .dashboard-card {
@@ -3324,7 +3333,108 @@ ul {
     font-size: 0.85rem;
   }
 
-  /* Contact Section */
+
+  /* Testimonials Mobile: Horizontal Marquees */
+  .testimonial-scroll-container {
+    display: flex;
+    flex-direction: column;
+    /* Stack lanes vertically */
+    height: auto;
+    overflow: hidden;
+    gap: 1.5rem;
+    grid-template-columns: none;
+    /* Override grid */
+    padding: 0;
+    margin: 0 -1rem;
+    /* Full width even past padding */
+    width: 100vw;
+  }
+
+  .testimonial-column {
+    display: flex !important;
+    flex-direction: row;
+    /* Horizontal Marquee */
+    width: max-content;
+    /* Auto width based on content */
+    animation: scroll-horizontal 25s linear infinite;
+    margin: 0;
+    gap: 1.5rem;
+  }
+
+  /* Lane 1: Left to Right (or Right to Left) */
+  .testimonial-column:nth-child(1) {
+    animation-direction: normal;
+    /* Moves left (if defined to move -X) */
+  }
+
+  /* Lane 2: Reverse Direction */
+  .testimonial-column:nth-child(2) {
+    margin-top: 0;
+    animation-direction: reverse;
+    display: flex !important;
+  }
+
+  .testimonial-column:nth-child(3) {
+    display: flex !important;
+    animation-direction: normal;
+  }
+
+  /* Horizontal Animation */
+  @keyframes scroll-horizontal {
+    0% {
+      transform: translateX(0);
+    }
+
+    100% {
+      transform: translateX(-33.33%);
+    }
+
+    /* Loop 1 set */
+  }
+
+  .testimonial-card {
+    height: auto;
+    width: 300px;
+    /* Fixed width for horizontal flow */
+    min-height: 220px;
+    margin-bottom: 0;
+    flex-shrink: 0;
+    white-space: normal;
+    /* Ensure text wraps inside card */
+  }
+
+  /* Container for marquees */
+  .testimonial-scroll-wrapper {
+    height: auto;
+    overflow: hidden;
+    width: 100vw;
+    margin-left: -1rem;
+    /* Offset parent padding */
+  }
+
+  /* Fade masks sides */
+  .testimonial-scroll-wrapper::before,
+  .testimonial-scroll-wrapper::after {
+    display: block;
+    width: 20px;
+    height: 100%;
+    top: 0;
+    z-index: 2;
+  }
+
+  .testimonial-scroll-wrapper::before {
+    left: 0;
+    background: linear-gradient(to right, var(--bg-dark), transparent);
+  }
+
+  .testimonial-scroll-wrapper::after {
+    right: 0;
+    bottom: auto;
+    /* Reset */
+    background: linear-gradient(to left, var(--bg-dark), transparent);
+  }
+
+  /* Social Links */
   .contact-highlight h2 {
     font-size: 2rem;
   }
