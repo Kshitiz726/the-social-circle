@@ -2759,14 +2759,12 @@ ul {
     font-size: 0.95rem;
   }
 
-  /* Service Features */
-  .service-feature {
-    flex-direction: column;
-    gap: 2rem;
-  }
-
-  .service-feature:nth-child(even) {
-    flex-direction: column;
+  /* Service Features - Force Stacked Layout */
+  .service-feature,
+  .service-feature:nth-child(even),
+  .service-feature:nth-child(odd) {
+    flex-direction: column !important;
+    gap: 3rem;
   }
 
   .feature-content,
@@ -2986,18 +2984,37 @@ ul {
     display: none !important;
   }
 
+  /* Influencer Grid - Clean 2x2 Photos */
+  .influencer-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    width: 100%;
+    justify-items: center;
+    /* Center items in grid cells */
+  }
+
   .influencer-card {
-    padding: 0.5rem;
+    padding: 0;
     background: transparent !important;
-    /* Remove background on mobile for cleaner look if just images? */
     border: none !important;
-    /* User said "just put their photo". */
+    box-shadow: none !important;
+    width: auto;
+    /* Let content dictate width */
+    min-height: auto;
   }
 
   .influencer-card img {
-    width: 70px;
-    /* Slightly larger photo */
-    height: 70px;
+    width: 90px;
+    /* Nice large avatars */
+    height: 90px;
+    border: 3px solid rgba(124, 58, 237, 0.5);
+    /* Premium border */
+    box-shadow: 0 0 20px rgba(124, 58, 237, 0.2);
+  }
+
+  .influencer-header {
+    gap: 0;
   }
 
   /* Influencer Video Size & Position - Vertical Stack on Mobile */
