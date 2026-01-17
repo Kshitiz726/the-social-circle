@@ -2957,15 +2957,52 @@ ul {
     /* Tall cinematic feel on mobile */
   }
 
-  /* Fix content Creation Video in Mobile */
-  #content-video-carousel .custom-video-player {
-    height: 400px;
-    /* Reduced specific height for mobile */
+  /* Fix Content Creation Video in Mobile - Match Influencer Style */
+  #content-video-carousel {
+    width: 100%;
+    margin-top: 2rem;
+    height: auto;
   }
 
+  /* Hide navigation arrows and counter */
+  #content-video-carousel .carousel-nav,
+  #content-video-carousel .carousel-counter {
+    display: none !important;
+  }
+
+  /* Stack videos vertically */
   #content-video-carousel .carousel-wrapper {
-    max-width: 260px;
-    /* Narrower to fit with padding */
+    max-width: 100%;
+    width: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    height: auto !important;
+  }
+
+  /* Force all slides to be visible and stacked */
+  #content-video-carousel .carousel-slide {
+    position: relative !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    display: block !important;
+    width: 100%;
+  }
+
+  /* Match influencer video dimensions */
+  #content-video-carousel .custom-video-player {
+    height: 280px;
+    width: 100%;
+    border-radius: 16px;
+    margin: 0;
+  }
+
+  #content-video-carousel .carousel-video {
+    object-fit: cover;
   }
 
   /* Influencer Section Mobile */
