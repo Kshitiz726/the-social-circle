@@ -2980,17 +2980,24 @@ ul {
     width: 100%;
   }
 
-  .influencer-info h4 {
-    font-size: 0.95rem;
-    /* Smaller font to fit */
-    line-height: 1.2;
-    margin-bottom: 0.2rem;
-    word-break: break-word;
-    /* Prevent overflow */
+  /* Hide name and followers on mobile */
+  .influencer-info,
+  .follower-count {
+    display: none !important;
   }
 
-  .follower-count {
-    font-size: 0.8rem;
+  .influencer-card {
+    padding: 0.5rem;
+    background: transparent !important;
+    /* Remove background on mobile for cleaner look if just images? */
+    border: none !important;
+    /* User said "just put their photo". */
+  }
+
+  .influencer-card img {
+    width: 70px;
+    /* Slightly larger photo */
+    height: 70px;
   }
 
   /* Influencer Video Size & Position - Vertical Stack on Mobile */
@@ -3001,8 +3008,9 @@ ul {
     /* Allow auto height for accumulation */
   }
 
-  /* Hide navigation arrows on mobile */
-  #influencer-video-carousel .carousel-nav {
+  /* Hide navigation arrows and counter on mobile */
+  #influencer-video-carousel .carousel-nav,
+  #influencer-video-carousel .carousel-counter {
     display: none !important;
   }
 
@@ -3031,13 +3039,12 @@ ul {
   }
 
   /* Reduced dimensions for stacked videos */
-  /* Reduced dimensions for stacked videos */
   #influencer-video-carousel .custom-video-player {
-    height: 250px;
+    height: 280px;
     /* Compact height */
     width: 100%;
     border-radius: 16px;
-    margin: 0 auto;
+    margin: 0;
     /* Removed max-width to allow full width usage */
   }
 
