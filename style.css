@@ -2993,43 +2993,57 @@ ul {
     font-size: 0.8rem;
   }
 
-  /* Influencer Video Size & Position */
+  /* Influencer Video Size & Position - Vertical Stack on Mobile */
   #influencer-video-carousel {
     width: 100%;
     margin-top: 2rem;
+    height: auto;
+    /* Allow auto height for accumulation */
   }
 
-  #influencer-video-carousel .custom-video-player {
-    height: 480px;
-    /* Taller to be visible */
-    width: 100%;
-    border-radius: 20px;
+  /* Hide navigation arrows on mobile */
+  #influencer-video-carousel .carousel-nav {
+    display: none !important;
   }
 
+  /* Stack videos vertically */
   #influencer-video-carousel .carousel-wrapper {
     max-width: 100%;
-    /* Use full width available */
     width: 100%;
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    /* Space between stacked videos */
+    height: auto !important;
   }
 
-  /* Fix navigation buttons on mobile */
-  #influencer-video-carousel .carousel-nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 20;
-    background: rgba(0, 0, 0, 0.6);
-    width: 35px;
-    height: 35px;
+  /* Force all slides to be visible and stacked */
+  #influencer-video-carousel .carousel-slide {
+    position: relative !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    display: block !important;
+    width: 100%;
   }
 
-  #influencer-video-carousel .prev-carousel {
-    left: 10px;
+  /* Reduced dimensions for stacked videos */
+  #influencer-video-carousel .custom-video-player {
+    height: 280px;
+    /* Reduced height as requested */
+    width: 100%;
+    border-radius: 16px;
+    margin: 0 auto;
+    max-width: 320px;
+    /* Prevent them from being too wide if screen is large phone */
   }
 
-  #influencer-video-carousel .next-carousel {
-    right: 10px;
+  /* Ensure video element fits */
+  #influencer-video-carousel .carousel-video {
+    object-fit: cover;
   }
 
   /* Social Management Dashboard Mobile Fix */
