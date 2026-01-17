@@ -1054,22 +1054,29 @@ ul {
   display: none;
 }
 
+/* Desktop Influencer Image Styling - Premium Brand Look */
 .influencer-card img {
-  width: 60px;
-  /* Slightly smaller to save vertical space */
-  height: 60px;
+  width: 75px;
+  height: 75px;
   border-radius: 50%;
-  border: 3px solid rgba(124, 58, 237, 0.3);
+  /* Double layer border effect */
+  border: 2px solid rgba(20, 20, 20, 1);
+  /* Inner spacing */
+  outline: 2px solid var(--accent-primary);
+  /* Outer ring */
+  outline-offset: 2px;
+  background: #1a1a1a;
   object-fit: cover;
   flex-shrink: 0;
-  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
 .influencer-card:hover img {
-  border-color: var(--accent-primary);
-  transform: scale(1.15) rotate(5deg);
-  box-shadow: 0 0 20px rgba(124, 58, 237, 0.4);
+  transform: scale(1.15) rotate(3deg);
+  outline-color: #fff;
+  box-shadow: 0 0 30px rgba(124, 58, 237, 0.5);
+  outline-width: 3px;
 }
 
 .influencer-info {
@@ -2341,11 +2348,20 @@ ul {
 }
 
 .team-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  /* Better responsiveness */
-  gap: 2.5rem;
-  margin-top: 4rem;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  gap: 2.5rem !important;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Ensure they don't stretch weirdly */
+.team-card {
+  width: 350px;
+  /* Fixed width for better grid alignment */
+  max-width: 100%;
 }
 
 .team-card {
@@ -2953,8 +2969,21 @@ ul {
   }
 
   .team-img-wrapper {
-    height: 350px;
-    /* Tall cinematic feel on mobile */
+    width: 120px;
+    /* Smaller for mobile */
+    height: 120px;
+  }
+
+  .team-info h3 {
+    font-size: 1.2rem;
+  }
+
+  .team-role {
+    font-size: 0.8rem;
+  }
+
+  .team-desc {
+    font-size: 0.85rem;
   }
 
   /* Fix Content Creation Video in Mobile - Match Influencer Style */
@@ -3085,56 +3114,16 @@ ul {
 
   /* Influencer Section Mobile */
   .influencer-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    /* Show 2x2 grid */
-    gap: 0.75rem !important;
-    /* Tighter gap */
+    display: flex;
+    flex-wrap: wrap;
+    /* Allow wrapping */
+    justify-content: center;
+    /* Center the items */
+    gap: 1rem;
+    /* Balanced gap */
     width: 100%;
-  }
-
-  .influencer-card {
-    min-height: auto;
-    padding: 1rem 0.5rem;
-    /* Reduced horizontal padding */
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    width: 100%;
-    border-radius: 16px;
-  }
-
-  .influencer-header {
-    flex-direction: column;
-    gap: 0.75rem;
-    width: 100%;
-  }
-
-  .influencer-header img {
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
-  }
-
-  .influencer-info {
-    text-align: center;
-    width: 100%;
-  }
-
-  /* Hide name and followers on mobile */
-  .influencer-info,
-  .follower-count {
-    display: none !important;
-  }
-
-  /* Influencer Grid - Clean 2x2 Photos */
-  .influencer-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-    width: 100%;
-    justify-items: center;
-    /* Center items in grid cells */
+    margin-top: 0.5rem;
+    /* Tight top margin */
   }
 
   .influencer-card {
@@ -3143,17 +3132,44 @@ ul {
     border: none !important;
     box-shadow: none !important;
     width: auto;
-    /* Let content dictate width */
     min-height: auto;
   }
 
   .influencer-card img {
-    width: 90px;
-    /* Nice large avatars */
-    height: 90px;
-    border: 3px solid rgba(124, 58, 237, 0.5);
-    /* Premium border */
-    box-shadow: 0 0 20px rgba(124, 58, 237, 0.2);
+    width: 85px;
+    height: 85px;
+    border: none;
+    border-radius: 50%;
+    /* Premium Mobile Look: Angular Gradient Border Effect */
+    background: padding-box linear-gradient(#121212, #121212), border-box linear-gradient(135deg, #7c3aed, #2563eb, #a855f7);
+    border: 3px solid transparent;
+    padding: 3px;
+    box-shadow:
+      0 0 15px rgba(124, 58, 237, 0.3),
+      inset 0 0 10px rgba(0, 0, 0, 0.5);
+    object-fit: cover;
+    /* Ensure nice separation */
+    margin: 0.25rem;
+  }
+
+  /* Reduce gaps in influencer section text */
+  #influencer-feature h3 {
+    margin-bottom: 0.25rem !important;
+    /* Extremely tight */
+    font-size: 1.75rem;
+    /* Slightly smaller for mobile compactness */
+  }
+
+  #influencer-feature .feature-desc {
+    margin-bottom: 0.75rem !important;
+    /* Reduced from 1.5rem */
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  #influencer-feature .influencer-section {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
   }
 
   .influencer-header {
