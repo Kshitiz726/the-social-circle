@@ -2759,12 +2759,40 @@ ul {
     font-size: 0.95rem;
   }
 
-  /* Service Features - Force Stacked Layout (Visual First) */
+  /* Service Features - Force Stacked Layout */
   .service-feature,
   .service-feature:nth-child(even),
   .service-feature:nth-child(odd) {
-    flex-direction: column-reverse !important;
+    flex-direction: column !important;
     gap: 3rem;
+  }
+
+  /* Special ordering for Influencer section: Title → Video → Grid */
+  #influencer-feature {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  #influencer-feature .feature-content {
+    display: contents;
+    /* Flatten hierarchy to allow reordering */
+  }
+
+  #influencer-feature h3 {
+    order: 1;
+  }
+
+  #influencer-feature .feature-desc {
+    order: 2;
+  }
+
+  #influencer-feature .feature-visual {
+    order: 3;
+    margin-bottom: 2rem;
+  }
+
+  #influencer-feature .influencer-section {
+    order: 4;
   }
 
   .feature-content,
