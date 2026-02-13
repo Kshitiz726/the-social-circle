@@ -256,16 +256,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    const mobileBtn = document.querySelector('.mobile-menu-btn');
-    const navLinks = document.querySelector('.nav-links');
+    // --- Mobile Menu Toggle (Floating Pill) ---
+    const mobileBtn = document.querySelector('.mobile-menu-toggle');
+    const floatingNav = document.querySelector('.floating-nav');
 
-    if (mobileBtn && navLinks) {
+    if (mobileBtn && floatingNav) {
         mobileBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
+            floatingNav.classList.toggle('mobile-active');
 
             // Toggle icon
             const icon = mobileBtn.querySelector('ion-icon');
-            if (navLinks.classList.contains('active')) {
+            if (floatingNav.classList.contains('mobile-active')) {
                 icon.setAttribute('name', 'close-outline');
             } else {
                 icon.setAttribute('name', 'menu-outline');
@@ -273,11 +274,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // Close menu when a link is clicked
-        document.querySelectorAll('.nav-link').forEach(link => {
+        const navLinks = floatingNav.querySelectorAll('.nav-link-item, .nav-cta-btn');
+        navLinks.forEach(link => {
             link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
+                floatingNav.classList.remove('mobile-active');
                 const icon = mobileBtn.querySelector('ion-icon');
-                icon.setAttribute('name', 'menu-outline');
+                if (icon) icon.setAttribute('name', 'menu-outline');
             });
         });
     }

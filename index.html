@@ -8,7 +8,9 @@
     <link rel="icon" type="image/jpeg" href="tab.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=DM+Sans:wght@400;500;700&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Syncopate:wght@400;700&family=Playfair+Display:wght@400;700;900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="preload" as="image" href="logo.png">
     <!-- Ionicons for Icons -->
@@ -16,6 +18,9 @@
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <!-- Instagram Embed Script -->
     <script async src="//www.instagram.com/embed.js"></script>
+    <!-- GSAP for Professional Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 
 <body>
@@ -23,29 +28,30 @@
 
 
     <!-- Header -->
-    <header class="header">
-        <div class="container nav flex flex-between">
-            <a href="#" class="logo">
-                <img src="logo.png" alt="The Social Circle" class="nav-logo-img">
+    <!-- Floating Pill Navigation -->
+    <nav class="floating-nav-container">
+        <div class="floating-nav glass-panel">
+            <!-- Logo -->
+            <a href="#" class="nav-logo-wrapper">
+                <img src="logo.png" alt="The Social Circle" class="nav-logo">
             </a>
 
-            <div class="mobile-menu-btn">
+            <!-- Central Links -->
+            <div class="nav-links-group">
+                <a href="#testimonials" class="nav-link-item">Testimonials</a>
+                <a href="#disciplines" class="nav-link-item">Services</a>
+                <a href="#faq" class="nav-link-item">FAQs</a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <div class="mobile-menu-toggle">
                 <ion-icon name="menu-outline"></ion-icon>
             </div>
-            <ul class="nav-links flex">
-                <li><a href="#services" class="nav-link">Services</a></li>
-                <li><a href="#social-proof" class="nav-link">Partners</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-                <!-- Call Option in Nav -->
-                <li><a href="https://mail.google.com/mail/?view=cm&fs=1&to=admin@thesocialcircle.io&su=Deal%20Proposal&body=Hello%2C%0A%0A%5BYour%20Message%20to%20us%5D%0A%0ABest%20regards%2C%0AYour%20Name%0ACompany%20Name%0A%F0%9F%93%9E%20%2B44%20%5BPhone%20Number%5D%0A%F0%9F%93%A7email%40gmail.com"
-                        target="_blank" class="nav-link" style="color: var(--accent-primary);"><ion-icon
-                            name="mail-outline" style="vertical-align:middle; margin-right:5px;"></ion-icon>Mail
-                        Now</a></li>
-            </ul>
-            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=admin@thesocialcircle.io&su=Deal%20Proposal&body=Hello%2C%0A%0A%5BYour%20Message%20to%20us%5D%0A%0ABest%20regards%2C%0AYour%20Name%0ACompany%20Name%0A%F0%9F%93%9E%20%2B44%20%5BPhone%20Number%5D%0A%F0%9F%93%A7email%40gmail.com"
-                target="_blank" class="btn btn-primary header-btn">Mail Now</a>
+
+            <!-- CTA Button -->
+            <a href="#contact" class="nav-cta-btn">Mail Us</a>
         </div>
-    </header>
+    </nav>
 
     <!-- Hero Section -->
     <!-- Hero Section -->
@@ -97,22 +103,42 @@
         <div class="container">
             <!-- Part 1: Brands -->
             <p class="social-proof-header">You're in good hands:</p>
-            <div class="brand-grid reveal">
-                <img src="assets/brands/lamborghini.jpg" alt="Lamborghini" class="brand-logo">
-                <img src="assets/brands/rolex.jpg" alt="Rolex" class="brand-logo">
-                <img src="assets/brands/seriderm.jpg" alt="Seriderm" class="brand-logo">
-                <img src="assets/brands/inmode.jpg" alt="InMode" class="brand-logo">
-                <img src="assets/brands/bjb.jpg" alt="BJB" class="brand-logo">
-                <img src="assets/brands/chai_and_chapati.jpg" alt="Chai and Chapati" class="brand-logo">
-                <img src="assets/brands/crispies.jpg" alt="Crispies" class="brand-logo">
-                <img src="assets/brands/muncheez.jpg" alt="Muncheez" class="brand-logo">
-                <img src="assets/brands/vu.jpg" alt="VU" class="brand-logo">
-                <img src="assets/brands/tony_pizza.jpg" alt="Tony Pizza" class="brand-logo">
-                <img src="assets/brands/nova.jpg" alt="Nova" class="brand-logo">
-                <img src="assets/brands/pure_muscles_gym.jpg" alt="Pure Muscles Gym" class="brand-logo">
-                <img src="assets/brands/five_cafe.jpg" alt="Five Cafe" class="brand-logo">
-                <img src="assets/brands/nexgen_protection.jpg" alt="Nexgen Protection" class="brand-logo">
-                <img src="assets/brands/netflix.jpg" alt="Netflix" class="brand-logo">
+            <div class="marquee-container reveal">
+                <div class="marquee-track">
+                    <!-- Set 1 -->
+                    <img src="assets/brands/lamborghini.jpg" alt="Lamborghini" class="brand-logo">
+                    <img src="assets/brands/rolex.jpg" alt="Rolex" class="brand-logo">
+                    <img src="assets/brands/seriderm.jpg" alt="Seriderm" class="brand-logo">
+                    <img src="assets/brands/inmode.jpg" alt="InMode" class="brand-logo">
+                    <img src="assets/brands/bjb.jpg" alt="BJB" class="brand-logo">
+                    <img src="assets/brands/chai_and_chapati.jpg" alt="Chai and Chapati" class="brand-logo">
+                    <img src="assets/brands/crispies.jpg" alt="Crispies" class="brand-logo">
+                    <img src="assets/brands/muncheez.jpg" alt="Muncheez" class="brand-logo">
+                    <img src="assets/brands/vu.jpg" alt="VU" class="brand-logo">
+                    <img src="assets/brands/tony_pizza.jpg" alt="Tony Pizza" class="brand-logo">
+                    <img src="assets/brands/nova.jpg" alt="Nova" class="brand-logo">
+                    <img src="assets/brands/pure_muscles_gym.jpg" alt="Pure Muscles Gym" class="brand-logo">
+                    <img src="assets/brands/five_cafe.jpg" alt="Five Cafe" class="brand-logo">
+                    <img src="assets/brands/nexgen_protection.jpg" alt="Nexgen Protection" class="brand-logo">
+                    <img src="assets/brands/netflix.jpg" alt="Netflix" class="brand-logo">
+
+                    <!-- Set 2 (Duplicate for smooth loop) -->
+                    <img src="assets/brands/lamborghini.jpg" alt="Lamborghini" class="brand-logo">
+                    <img src="assets/brands/rolex.jpg" alt="Rolex" class="brand-logo">
+                    <img src="assets/brands/seriderm.jpg" alt="Seriderm" class="brand-logo">
+                    <img src="assets/brands/inmode.jpg" alt="InMode" class="brand-logo">
+                    <img src="assets/brands/bjb.jpg" alt="BJB" class="brand-logo">
+                    <img src="assets/brands/chai_and_chapati.jpg" alt="Chai and Chapati" class="brand-logo">
+                    <img src="assets/brands/crispies.jpg" alt="Crispies" class="brand-logo">
+                    <img src="assets/brands/muncheez.jpg" alt="Muncheez" class="brand-logo">
+                    <img src="assets/brands/vu.jpg" alt="VU" class="brand-logo">
+                    <img src="assets/brands/tony_pizza.jpg" alt="Tony Pizza" class="brand-logo">
+                    <img src="assets/brands/nova.jpg" alt="Nova" class="brand-logo">
+                    <img src="assets/brands/pure_muscles_gym.jpg" alt="Pure Muscles Gym" class="brand-logo">
+                    <img src="assets/brands/five_cafe.jpg" alt="Five Cafe" class="brand-logo">
+                    <img src="assets/brands/nexgen_protection.jpg" alt="Nexgen Protection" class="brand-logo">
+                    <img src="assets/brands/netflix.jpg" alt="Netflix" class="brand-logo">
+                </div>
             </div>
 
             <!-- Part 2:  s -->
@@ -120,334 +146,335 @@
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="section" id="services">
-        <div class="container">
-            <div class="comparison-header-container" style="text-align: center; margin-bottom: 5rem;">
-                <span class="comparison-pill">Our Expertise</span>
-                <h2 class="comparison-title-large reveal">What We Do <span class="gradient-text"
-                        style="font-style: italic;">Best</span></h2>
-                <p class="reveal" style="color: var(--text-muted); max-width: 700px; margin: 1.5rem auto;">
-                    Comprehensive solutions designed to elevate your brand's digital presence.
-                </p>
+    <!-- Section: The Stacked Experience -->
+    <div class="f7-stack-container">
+        <!-- Section: The Philosophy -->
+        <section class="f7-section f7-stack-card" id="philosophy" style="z-index: 1;">
+
+            <!-- Cinematic Video Background (Generic/Abstract) -->
+            <div class="cinematic-video-bg">
+                <video autoplay loop muted playsinline poster="assets/videos/poster-philosophy.jpg">
+                    <source src="assets/videos/video.mp4" type="video/mp4">
+                </video>
+                <div class="video-overlay-gradient"></div>
             </div>
 
-            <!-- Feature 1: Content Creation -->
-            <div class="service-feature">
-                <div class="feature-content reveal">
+            <div class="container" style="position: relative; z-index: 2;">
+                <span class="f7-label">Agency / Philosophy</span>
 
-                    <h3>Content Creation</h3>
-                    <p class="feature-desc">We don't just post; we perform. Our creative specialists produce stunning
-                        reels, photos, and graphics that capture attention and set your brand apart from the noise.</p>
-                    <div class="feature-details-grid">
-                        <div class="detail-card">
-                            <ion-icon name="bulb-outline"></ion-icon>
-                            <h4>Strategy</h4>
-                            <p>Data-Backed Concepts</p>
+                <div class="services_title_stack">
+                    <div class="services_title_item">
+                        <div class="services_title_second_outer">
+                            <h2 class="f7-h2" style="margin: 0;">We believe in brands that are</h2>
                         </div>
-                        <div class="detail-card">
-                            <ion-icon name="camera-outline"></ion-icon>
-                            <h4>Production</h4>
-                            <p>4K Cinema Grade</p>
+                    </div>
+                    <div class="services_title_item">
+                        <div class="services_title_second_outer">
+                            <h2 class="f7-h2" style="margin: 0; color: var(--f7-blue);">deeply <em>integrated</em></h2>
                         </div>
-                        <div class="detail-card">
-                            <ion-icon name="cut-outline"></ion-icon>
-                            <h4>Editing</h4>
-                            <p>Fast-Paced Retention</p>
+                    </div>
+                    <div class="services_title_item">
+                        <div class="services_title_second_outer">
+                            <h2 class="f7-h2" style="margin: 0;">and culturally <em>relevant</em>.</h2>
                         </div>
                     </div>
                 </div>
-                <!-- Visual for Content Creation - Video Carousel -->
-                <div class="feature-visual reveal">
-                    <div class="video-carousel" id="content-video-carousel">
-                        <button class="carousel-nav prev-carousel" onclick="changeVideoSlide(-1)"
-                            aria-label="Previous video">
-                            <ion-icon name="chevron-back-outline"></ion-icon>
-                        </button>
 
-                        <div class="carousel-wrapper">
-                            <!-- Slide 1 -->
-                            <div class="carousel-slide active" data-slide="0">
-                                <div class="custom-video-player">
-                                    <video class="carousel-video" loop playsinline>
-                                        <source src="assets/videos/video.mp4" type="video/mp4">
-                                    </video>
-                                    <div class="video-overlay" onclick="toggleVideoPlay(this)">
-                                        <div class="play-icon">
-                                            <ion-icon name="play"></ion-icon>
-                                        </div>
-                                    </div>
-                                    <div class="video-controls">
-                                        <div class="progress-container" onclick="seekVideo(event, this)">
-                                            <div class="progress-bar"></div>
-                                        </div>
-                                        <div class="controls-main">
-                                            <button class="control-btn play-btn"
-                                                onclick="toggleVideoPlay(this.closest('.custom-video-player').querySelector('.video-overlay'))">
-                                                <ion-icon name="play"></ion-icon>
-                                            </button>
-                                            <button class="control-btn mute-btn" onclick="toggleMute(this)">
-                                                <ion-icon name="volume-medium"></ion-icon>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Slide 2 -->
-                            <div class="carousel-slide" data-slide="1">
-                                <div class="custom-video-player">
-                                    <video class="carousel-video" loop playsinline>
-                                        <source src="assets/videos/gpt.mp4" type="video/mp4">
-                                    </video>
-                                    <div class="video-overlay" onclick="toggleVideoPlay(this)">
-                                        <div class="play-icon">
-                                            <ion-icon name="play"></ion-icon>
-                                        </div>
-                                    </div>
-                                    <div class="video-controls">
-                                        <div class="progress-container" onclick="seekVideo(event, this)">
-                                            <div class="progress-bar"></div>
-                                        </div>
-                                        <div class="controls-main">
-                                            <button class="control-btn play-btn"
-                                                onclick="toggleVideoPlay(this.closest('.custom-video-player').querySelector('.video-overlay'))">
-                                                <ion-icon name="play"></ion-icon>
-                                            </button>
-                                            <button class="control-btn mute-btn" onclick="toggleMute(this)">
-                                                <ion-icon name="volume-medium"></ion-icon>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="carousel-counter">
-                                <span class="current-slide">1</span> / <span class="total-slides">2</span>
-                            </div>
-                        </div>
-
-                        <button class="carousel-nav next-carousel" onclick="changeVideoSlide(1)"
-                            aria-label="Next video">
-                            <ion-icon name="chevron-forward-outline"></ion-icon>
-                        </button>
+                <div class="f7-grid" style="margin-top: 6rem; position: relative; z-index: 2;">
+                    <div style="grid-column: span 6;">
+                        <p style="font-size: 1.25rem; color: var(--text-muted); line-height: 1.6; font-weight: 300;">
+                            The Social Circle was born from a simple observation: most "digital marketing" is just
+                            noise. We
+                            don't just post content; we engineer influence.
+                        </p>
+                    </div>
+                    <div style="grid-column: span 6;">
+                        <p style="font-size: 1.25rem; color: var(--text-muted); line-height: 1.6; font-weight: 300;">
+                            By combining cinema-grade production with data-driven strategy and direct influencer access,
+                            we
+                            bridge the gap between attention and conversion.
+                        </p>
                     </div>
                 </div>
+
+            </div>
+        </section>
+
+        <!-- Section: Selected Results -->
+        <section class="f7-section f7-stack-card" id="results"
+            style="background-color: var(--f7-black); color: var(--f7-white); z-index: 2;">
+
+            <!-- Cinematic Video Background (High Energy) -->
+            <div class="cinematic-video-bg">
+                <video autoplay loop muted playsinline poster="assets/videos/poster-results.jpg">
+                    <source src="assets/videos/50cent.mp4" type="video/mp4">
+                </video>
+                <div class="video-overlay-gradient"></div>
             </div>
 
-            <!-- Feature 2: Influencer Networking -->
-            <div class="service-feature" id="influencer-feature">
-                <div class="feature-content reveal">
-                    <h3>Influencer Networking</h3>
-                    <p class="feature-desc" style="margin-bottom: 0px;">We've networks with top influencers around the
-                        globe.</p>
+            <div class="container" style="position: relative; z-index: 2;">
+                <span class="f7-label" style="color: var(--f7-peach);">The Impact</span>
+                <h2 class="f7-h2">Selected <em>Results</em>.</h2>
 
-                    <div class="influencer-section">
-                        <div class="influencer-grid">
-                            <!-- 1) Conor McGregor -->
-                            <div class="influencer-card">
-                                <div class="influencer-header">
-                                    <img src="assets/influencers/cornor.jpg" alt="Conor McGregor">
-                                    <div class="influencer-info">
-                                        <h4>Conor McGregor</h4>
-                                        <span class="follower-count" style="color: var(--text-muted);">46M+
-                                            Followers</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- 2) 50 Cent -->
-                            <div class="influencer-card">
-                                <div class="influencer-header">
-                                    <img src="assets/influencers/50cent.jpg" alt="50 Cent">
-                                    <div class="influencer-info">
-                                        <h4>50 Cent</h4>
-                                        <span class="follower-count" style="color: var(--text-muted);">39M+
-                                            Followers</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- 3) Aston Hall -->
-                            <div class="influencer-card">
-                                <div class="influencer-header">
-                                    <img src="assets/influencers/aston.jpg" alt="Aston Hall">
-                                    <div class="influencer-info">
-                                        <h4>Ashton Hall</h4>
-                                        <span class="follower-count" style="color: var(--text-muted);">18M+
-                                            Followers</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- 4) Isaac Ezekiel Ajimotokin -->
-                            <div class="influencer-card">
-                                <div class="influencer-header">
-                                    <img src="assets/influencers/isaac.jpg" alt="Isaac Ezekiel Ajimotokin">
-                                    <div class="influencer-info">
-                                        <h4>Isaac Ezekiel Ajimotokin</h4>
-                                        <span class="follower-count" style="color: var(--text-muted);">2M+
-                                            Followers</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <p style="margin-top: 1.5rem; color: var(--text-muted); font-style: italic;">...and others</p>
+                <div class="f7-grid">
+                    <div style="grid-column: span 4;">
+                        <div class="f7-stat-num"><span id="stat-reach">0</span>M+</div>
+                        <div class="f7-label" style="color: rgba(255,255,255,0.7); margin-bottom: 0;">Total Network
+                            Reach</div>
                     </div>
-                </div>
-
-                <!-- Visual for Influencer Networking - Video Carousel -->
-                <div class="feature-visual reveal">
-                    <div class="video-carousel" id="influencer-video-carousel">
-                        <button class="carousel-nav prev-carousel" onclick="changeInfluencerVideoSlide(-1)"
-                            aria-label="Previous video">
-                            <ion-icon name="chevron-back-outline"></ion-icon>
-                        </button>
-
-                        <div class="carousel-wrapper">
-                            <!-- Slide 1 -->
-                            <div class="carousel-slide active" data-slide="0">
-                                <div class="custom-video-player">
-                                    <video class="carousel-video" loop playsinline>
-                                        <source src="assets/videos/50cent.mp4" type="video/mp4">
-                                    </video>
-                                    <div class="video-overlay" onclick="toggleVideoPlay(this)">
-                                        <div class="play-icon">
-                                            <ion-icon name="play"></ion-icon>
-                                        </div>
-                                    </div>
-                                    <div class="video-controls">
-                                        <div class="progress-container" onclick="seekVideo(event, this)">
-                                            <div class="progress-bar"></div>
-                                        </div>
-                                        <div class="controls-main">
-                                            <button class="control-btn play-btn"
-                                                onclick="toggleVideoPlay(this.closest('.custom-video-player').querySelector('.video-overlay'))">
-                                                <ion-icon name="play"></ion-icon>
-                                            </button>
-                                            <button class="control-btn mute-btn" onclick="toggleMute(this)">
-                                                <ion-icon name="volume-medium"></ion-icon>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Slide 2 -->
-                            <div class="carousel-slide" data-slide="1">
-                                <div class="custom-video-player">
-                                    <video class="carousel-video" loop playsinline>
-                                        <source src="assets/videos/aston.mp4" type="video/mp4">
-                                    </video>
-                                    <div class="video-overlay" onclick="toggleVideoPlay(this)">
-                                        <div class="play-icon">
-                                            <ion-icon name="play"></ion-icon>
-                                        </div>
-                                    </div>
-                                    <div class="video-controls">
-                                        <div class="progress-container" onclick="seekVideo(event, this)">
-                                            <div class="progress-bar"></div>
-                                        </div>
-                                        <div class="controls-main">
-                                            <button class="control-btn play-btn"
-                                                onclick="toggleVideoPlay(this.closest('.custom-video-player').querySelector('.video-overlay'))">
-                                                <ion-icon name="play"></ion-icon>
-                                            </button>
-                                            <button class="control-btn mute-btn" onclick="toggleMute(this)">
-                                                <ion-icon name="volume-medium"></ion-icon>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="carousel-counter">
-                                <span class="current-slide">1</span> / <span class="total-slides">2</span>
-                            </div>
-                        </div>
-
-                        <button class="carousel-nav next-carousel" onclick="changeInfluencerVideoSlide(1)"
-                            aria-label="Next video">
-                            <ion-icon name="chevron-forward-outline"></ion-icon>
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Feature 3: Social Management -->
-            <div class="service-feature" style="margin-bottom: 0;">
-                <div class="feature-content reveal">
-
-                    <h3>Social Media Management</h3>
-                    <p class="feature-desc">Stop guessing and start growing. We use data-driven expertise to manage your
-                        social media content from end-to-end.</p>
-                    <div class="feature-details-grid">
-                        <div class="detail-card">
-                            <ion-icon name="trending-up-outline"></ion-icon>
-                            <h4 class="counter-anim" data-target="300" data-suffix="%">+0%</h4>
-                            <p>Growth</p>
-                        </div>
-                        <div class="detail-card">
-                            <ion-icon name="eye-outline"></ion-icon>
-                            <h4 class="counter-anim" data-target="50" data-suffix="M">0M</h4>
-                            <p>Views Gained</p>
-                        </div>
-                        <div class="detail-card">
-                            <ion-icon name="briefcase-outline"></ion-icon>
-                            <h4 class="counter-anim" data-target="20" data-suffix="">0</h4>
-                            <p>Brands Worked With</p>
+                    <div style="grid-column: span 4;">
+                        <div class="f7-stat-num"><span id="stat-partners">0</span>+</div>
+                        <div class="f7-label" style="color: rgba(255,255,255,0.7); margin-bottom: 0;">Global
+                            Partners
                         </div>
                     </div>
-                </div>
-                <!-- Visual for Social Media Management - Growth Dashboard -->
-                <div class="feature-visual reveal">
-                    <div class="dashboard-visual">
-                        <div class="floating-badge badge-1">
-                            <div class="badge-icon">
-                                <ion-icon name="people"></ion-icon>
-                            </div>
-                            <div>
-                                <h5>Followers</h5>
-                                <span class="counter-anim" data-target="25.4" data-suffix="K">+0K</span>
-                            </div>
-                        </div>
-
-                        <div class="floating-badge badge-2">
-                            <div class="badge-icon">
-                                <ion-icon name="trending-up"></ion-icon>
-                            </div>
-                            <div>
-                                <h5>Engagement</h5>
-                                <span class="counter-anim" data-target="312" data-suffix="%">+0%</span>
-                            </div>
-                        </div>
-
-                        <div class="dashboard-card">
-                            <div class="dashboard-header">
-                                <div class="stat-group">
-                                    <span class="stat-label">Total Reach</span>
-                                    <span class="stat-value counter-anim" data-target="2.8" data-suffix="M">0M</span>
-                                </div>
-                                <div class="stat-group" style="text-align: right;">
-                                    <span class="stat-label">Growth</span>
-                                    <span class="stat-value" style="color: #4ade80;">+14.5%</span>
-                                </div>
-                            </div>
-
-                            <div class="growth-graph">
-                                <div class="graph-bar"></div>
-                                <div class="graph-bar"></div>
-                                <div class="graph-bar"></div>
-                                <div class="graph-bar"></div>
-                                <div class="graph-bar"></div>
-                                <div class="graph-bar"></div>
-                                <div class="graph-bar"></div>
-                            </div>
+                    <div style="grid-column: span 4;">
+                        <div class="f7-stat-num"><span id="stat-lift">0</span>%</div>
+                        <div class="f7-label" style="color: rgba(255,255,255,0.7); margin-bottom: 0;">Avg.
+                            Engagement
+                            Lift
                         </div>
                     </div>
                 </div>
             </div>
+        </section>
+
+        <!-- Section: The Process -->
+        <section class="f7-section f7-stack-card" id="process"
+            style="background-color: var(--f7-black); color: var(--f7-white); z-index: 3;">
+
+            <!-- Cinematic Video Background -->
+            <div class="cinematic-video-bg">
+                <video autoplay loop muted playsinline poster="assets/videos/poster-process.jpg">
+                    <source src="assets/videos/aston.mp4" type="video/mp4">
+                </video>
+                <div class="video-overlay-gradient"></div>
+            </div>
+
+            <div class="container" style="position: relative; z-index: 2;">
+                <span class="f7-label">Our Journey</span>
+                <h2 class="f7-h2">Three steps to <em>scale</em>.</h2>
+
+                <div class="f7-grid">
+                    <div class="f7-list-item"
+                        style="grid-column: span 4; flex-direction: column; align-items: flex-start; gap: 1rem; backdrop-filter: blur(10px); background: rgba(0,0,0,0.4); padding: 2rem; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1);">
+                        <span class="f7-list-num">01 / DISCOVERY</span>
+                        <div class="f7-list-text">
+                            <h3 style="font-size: 1.2rem;">Strategy Phase</h3>
+                            <p style="color: rgba(255,255,255,0.8);">We audit your brand, identify key opportunities,
+                                and map out a viral roadmap tailored to your specific goals.</p>
+                        </div>
+                    </div>
+                    <div class="f7-list-item"
+                        style="grid-column: span 4; flex-direction: column; align-items: flex-start; gap: 1rem; backdrop-filter: blur(10px); background: rgba(0,0,0,0.4); padding: 2rem; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1);">
+                        <span class="f7-list-num">02 / CRAFT</span>
+                        <div class="f7-list-text">
+                            <h3 style="font-size: 1.2rem;">Execution Phase</h3>
+                            <p style="color: rgba(255,255,255,0.8);">Our production team brings the vision to life with
+                                cinema-grade visuals and high-retention editing.</p>
+                        </div>
+                    </div>
+                    <div class="f7-list-item"
+                        style="grid-column: span 4; flex-direction: column; align-items: flex-start; gap: 1rem; backdrop-filter: blur(10px); background: rgba(0,0,0,0.4); padding: 2rem; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1);">
+                        <span class="f7-list-num">03 / SCALE</span>
+                        <div class="f7-list-text">
+                            <h3 style="font-size: 1.2rem;">Growth Phase</h3>
+                            <p style="color: rgba(255,255,255,0.8);">We leverage our influencer network and data-driven
+                                management to propel your brand into the cultural zeitgeist.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Section: The Disciplines (Arc Experience) -->
+    <section class="f7-arc-section" id="disciplines">
+        <div class="f7-arc-sticky-wrapper" style="position: sticky; overflow: hidden;">
+
+
+
+            <div class="f7-arc-container" style="position: relative; z-index: 2;">
+                <div class="f7-arc-left">
+                    <span class="f7-label" style="color: var(--f7-blue);">The Ecosystem</span>
+                    <h2 class="f7-h2" style="color: #fff; margin-top: 1rem;">What we do <em>best</em>.</h2>
+                    <p class="f7-arc-intro">
+                        We help talented people at brilliant brands solve problems through every discipline you can
+                        imagine.
+                    </p>
+                </div>
+
+                <div class="f7-arc-right">
+                    <div class="arc-content" id="arc-items">
+                        <div class="discipline-item">Strategy</div>
+                        <div class="discipline-item">•</div>
+                        <div class="discipline-item">Advertising</div>
+                        <div class="discipline-item">•</div>
+                        <div class="discipline-item">Social</div>
+                        <div class="discipline-item">•</div>
+                        <div class="discipline-item">Branding</div>
+                        <div class="discipline-item">•</div>
+                        <div class="discipline-item">Digital</div>
+                        <div class="discipline-item">•</div>
+                        <div class="discipline-item">Experience</div>
+                        <div class="discipline-item">•</div>
+                        <div class="discipline-item">Innovation</div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
+
+    <!-- Section: Content Creation (3-Column Video Grid) -->
+    <section class="f7-section" id="content-creation">
+        <div class="container">
+            <span class="f7-label">Services / 01</span>
+            <h2 class="f7-h2" style="margin-bottom: 4rem;">Producing high-octane assets that <em>cut through</em> the
+                noise.</h2>
+
+            <div class="f7-video-grid">
+                <div class="f7-v-card">
+                    <video loop muted playsinline autoplay>
+                        <source src="assets/videos/video.mp4" type="video/mp4">
+                    </video>
+                    <div class="f7-v-overlay">
+                        <span class="f7-v-label">Editorial</span>
+                        <h3 class="f7-v-title">Modern Aesthetics</h3>
+                    </div>
+                </div>
+                <div class="f7-v-card">
+                    <video loop muted playsinline autoplay>
+                        <source src="assets/videos/aston.mp4" type="video/mp4">
+                    </video>
+                    <div class="f7-v-overlay">
+                        <span class="f7-v-label">Cinema</span>
+                        <h3 class="f7-v-title">Pulse of Culture</h3>
+                    </div>
+                </div>
+                <div class="f7-v-card">
+                    <video loop muted playsinline autoplay>
+                        <source src="assets/videos/50cent.mp4" type="video/mp4">
+                    </video>
+                    <div class="f7-v-overlay">
+                        <span class="f7-v-label">Social</span>
+                        <h3 class="f7-v-title">Engagement First</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stacking Card Container -->
+    <div class="f7-stack-container">
+        <!-- Section: Influencer networking (Stacking Card 1) -->
+        <section class="f7-section f7-stack-card" id="influencer-networking"
+            style="background-color: var(--f7-black); color: var(--f7-white); min-height: 100vh; display: flex; align-items: center; z-index: 1;">
+
+            <!-- Cinematic Video Background (Luxury) -->
+            <div class="cinematic-video-bg">
+                <video autoplay loop muted playsinline poster="assets/videos/poster-influencer.jpg">
+                    <source src="assets/videos/aston.mp4" type="video/mp4">
+                </video>
+                <div class="video-overlay-gradient"></div>
+            </div>
+
+            <div class="container" style="position: relative; z-index: 2;">
+                <span class="f7-label" style="color: var(--f7-blue);">Services / 02</span>
+                <h2 class="f7-h2" style="color: var(--f7-white); margin-bottom: 4rem; max-width: 800px;">A global
+                    <em>ecosystem</em> of
+                    creators at your fingertips.
+                </h2>
+
+                <!-- Content with video removed and full width layout -->
+                <div class="f7-grid">
+                    <div style="grid-column: span 12; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+                        <div class="f7-list-item" style="border-top: 1px solid rgba(255,255,255,0.1);">
+                            <span class="f7-list-num" style="color: var(--f7-blue);">01</span>
+                            <div class="f7-list-text">
+                                <h3 style="color: var(--f7-white);">Talent Curation</h3>
+                                <p style="color: var(--text-muted);">We hand-pick creators who align with your
+                                    brand's
+                                    DNA, moving beyond just follower counts.</p>
+                            </div>
+                        </div>
+                        <div class="f7-list-item" style="border-top: 1px solid rgba(255,255,255,0.1);">
+                            <span class="f7-list-num" style="color: var(--f7-blue);">02</span>
+                            <div class="f7-list-text">
+                                <h3 style="color: var(--f7-white);">Direct Access</h3>
+                                <p style="color: var(--text-muted);">No tiers, no middle-men. We maintain personal
+                                    relationships with top-tier global talent.</p>
+                            </div>
+                        </div>
+                        <div class="f7-list-item" style="border-top: 1px solid rgba(255,255,255,0.1);">
+                            <span class="f7-list-num" style="color: var(--f7-blue);">01</span>
+                            <div class="f7-list-text">
+                                <h3 style="color: var(--f7-white);">Performance Management</h3>
+                                <p style="color: var(--text-muted);">We manage every aspect of the partnership, from
+                                    briefing to final delivery and ROI analysis.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Social Media Management (Stacking Card 2) -->
+        <section class="f7-section f7-stack-card" id="social-management"
+            style="background-color: var(--f7-black); color: var(--f7-white); min-height: 100vh; display: flex; align-items: center; z-index: 2;">
+
+            <!-- Cinematic Video Background (Tech/Data) -->
+            <div class="cinematic-video-bg">
+                <video autoplay loop muted playsinline poster="assets/videos/poster-social.jpg">
+                    <source src="assets/videos/gpt.mp4" type="video/mp4">
+                </video>
+                <div class="video-overlay-gradient"></div>
+            </div>
+
+            <div class="container" style="position: relative; z-index: 2;">
+                <span class="f7-label" style="color: var(--f7-blue);">Services / 03</span>
+                <h2 class="f7-h2">Propelling brand <em>relevance</em> through intelligent management.</h2>
+
+                <div class="f7-grid" style="margin-top: 4rem;">
+                    <div style="grid-column: span 12;">
+                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+                            <div class="f7-list-item"
+                                style="border-top-color: rgba(255,255,255,0.1); padding: 3rem 0; width: 100%; backdrop-filter: blur(5px);">
+                                <span class="f7-list-num" style="color: var(--f7-blue);">01</span>
+                                <div class="f7-list-text">
+                                    <h3 style="color: var(--f7-white); font-size: 2rem;">Strategic Roadmap</h3>
+                                    <p style="color: var(--text-muted); font-size: 1.1rem;">We build cross-platform
+                                        strategies that don't
+                                        just follow trends—they set them. Targeted growth, calculated impact.</p>
+                                </div>
+                            </div>
+                            <div class="f7-list-item" style="border-top-color: rgba(255,255,255,0.1); padding: 3rem 0;">
+                                <span class="f7-list-num" style="color: var(--f7-blue);">02</span>
+                                <div class="f7-list-text">
+                                    <h3 style="color: var(--f7-white); font-size: 2rem;">Always-On Engagement</h3>
+                                    <p style="color: var(--text-muted); font-size: 1.1rem;">Our team handles daily
+                                        community
+                                        growth,
+                                        ensuring
+                                        your brand stays conversational and reactive.</p>
+                                </div>
+                            </div>
+                            <div class="f7-list-item" style="border-top-color: rgba(255,255,255,0.1); padding: 3rem 0;">
+                                <span class="f7-list-num" style="color: var(--f7-blue);">03</span>
+                                <div class="f7-list-text">
+                                    <h3 style="color: var(--f7-white); font-size: 2rem;">Deep Analytics</h3>
+                                    <p style="color: var(--text-muted); font-size: 1.1rem;">We translate complex data
+                                        into
+                                        actionable
+                                        insights, providing clear ROI for every campaign across every channel.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
 
     <!-- Comparison Section -->
     <section class="comparison-section">
@@ -956,77 +983,81 @@
     </section>
 
     <!-- Team Section -->
-    <section class="team-section" id="team">
-        <div class="container">
-            <div class="comparison-header-container" style="text-align: center; margin-bottom: 4rem;">
-                <span class="comparison-pill">Our People</span>
-                <h2 class="comparison-title-large reveal">Meet The <span class="gradient-text"
-                        style="font-style: italic;">Team</span></h2>
+    <div class="f7-stack-container">
+        <section class="team-section f7-section f7-stack-card" id="team"
+            style="background-color: var(--f7-black); color: var(--f7-white); z-index: 1;">
+            <div class="container">
+                <div class="comparison-header-container" style="text-align: center; margin-bottom: 4rem;">
+                    <span class="comparison-pill">Our People</span>
+                    <h2 class="comparison-title-large reveal">Meet The <span class="gradient-text"
+                            style="font-style: italic;">Team</span></h2>
+                </div>
+
+                <div class="team-grid reveal">
+                    <!-- Anj Baig -->
+                    <div class="team-card">
+                        <div class="team-img-wrapper">
+                            <img src="assets/team/anj_baig.jpg" alt="Anj Baig" class="team-img">
+                        </div>
+                        <div class="team-info">
+                            <h3>Anj Baig</h3>
+                            <span class="team-role">Founder & CEO</span>
+                            <p class="team-desc">Visionary leader driving the agency's creative direction and growth.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Shaan -->
+                    <div class="team-card">
+                        <div class="team-img-wrapper">
+                            <img src="assets/team/shaan.jpg" alt="Shaan" class="team-img">
+                        </div>
+                        <div class="team-info">
+                            <h3>Shaan</h3>
+                            <span class="team-role">idk</span>
+                            <p class="team-desc">Ensuring cinema-grade quality in every frame we produce.</p>
+                        </div>
+                    </div>
+
+                    <!-- Suryansh -->
+                    <div class="team-card">
+                        <div class="team-img-wrapper">
+                            <img src="assets/team/suryansh.jpg" alt="Suryansh" class="team-img">
+                        </div>
+                        <div class="team-info">
+                            <h3>Suryansh</h3>
+                            <span class="team-role">idk</span>
+                            <p class="team-desc">Crafting data-backed strategies that guarantee viral growth.</p>
+                        </div>
+                    </div>
+
+                    <!-- Tedj -->
+                    <div class="team-card">
+                        <div class="team-img-wrapper">
+                            <img src="assets/team/tedj.jpg" alt="Tedj" class="team-img">
+                        </div>
+                        <div class="team-info">
+                            <h3>Tedj</h3>
+                            <span class="team-role">idk</span>
+                            <p class="team-desc">Bringing unique concepts to life with artistic flair.</p>
+                        </div>
+                    </div>
+
+                    <!-- Harshal Sharma -->
+                    <div class="team-card">
+                        <div class="team-img-wrapper">
+                            <img src="assets/team/harshal.jpg" alt="Harshal Sharma" class="team-img">
+                        </div>
+                        <div class="team-info">
+                            <h3>Harshal Sharma</h3>
+                            <span class="team-role">idk</span>
+                            <p class="team-desc">Dedicated to ensuring seamless communication and results.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <div class="team-grid reveal">
-                <!-- Anj Baig -->
-                <div class="team-card">
-                    <div class="team-img-wrapper">
-                        <img src="assets/team/anj_baig.jpg" alt="Anj Baig" class="team-img">
-                    </div>
-                    <div class="team-info">
-                        <h3>Anj Baig</h3>
-                        <span class="team-role">Founder & CEO</span>
-                        <p class="team-desc">Visionary leader driving the agency's creative direction and growth.</p>
-                    </div>
-                </div>
-
-                <!-- Shaan -->
-                <div class="team-card">
-                    <div class="team-img-wrapper">
-                        <img src="assets/team/shaan.jpg" alt="Shaan" class="team-img">
-                    </div>
-                    <div class="team-info">
-                        <h3>Shaan</h3>
-                        <span class="team-role">idk</span>
-                        <p class="team-desc">Ensuring cinema-grade quality in every frame we produce.</p>
-                    </div>
-                </div>
-
-                <!-- Suryansh -->
-                <div class="team-card">
-                    <div class="team-img-wrapper">
-                        <img src="assets/team/suryansh.jpg" alt="Suryansh" class="team-img">
-                    </div>
-                    <div class="team-info">
-                        <h3>Suryansh</h3>
-                        <span class="team-role">idk</span>
-                        <p class="team-desc">Crafting data-backed strategies that guarantee viral growth.</p>
-                    </div>
-                </div>
-
-                <!-- Tedj -->
-                <div class="team-card">
-                    <div class="team-img-wrapper">
-                        <img src="assets/team/tedj.jpg" alt="Tedj" class="team-img">
-                    </div>
-                    <div class="team-info">
-                        <h3>Tedj</h3>
-                        <span class="team-role">idk</span>
-                        <p class="team-desc">Bringing unique concepts to life with artistic flair.</p>
-                    </div>
-                </div>
-
-                <!-- Harshal Sharma -->
-                <div class="team-card">
-                    <div class="team-img-wrapper">
-                        <img src="assets/team/harshal.jpg" alt="Harshal Sharma" class="team-img">
-                    </div>
-                    <div class="team-info">
-                        <h3>Harshal Sharma</h3>
-                        <span class="team-role">idk</span>
-                        <p class="team-desc">Dedicated to ensuring seamless communication and results.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
+    </div>
 
     <!-- FAQ Section -->
     <section class="faq-section" id="faq">
@@ -1205,30 +1236,214 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
+    <!-- Footer Section -->
+    <footer class="footer-professional">
         <div class="container">
-            <div class="footer-content">
-                <div>
-                    <div class="logo">TheSocialCircle<span style="color:var(--accent-primary)">.</span></div>
-                    <p style="color: var(--text-muted); margin-top: 1rem;">Elevating brands through<br>creative digital
-                        strategies.</p>
+            <div class="footer-top-row">
+                <!-- Column 1: Brand -->
+                <div class="footer-col brand-col">
+                    <a href="#" class="footer-logo">
+                        TheSocialCircle<span style="color:var(--f7-peach)">.</span>
+                    </a>
+                    <p class="footer-desc">
+                        Engineering influence through cinema-grade content and data-driven strategy.
+                    </p>
+                    <div class="footer-socials">
+                        <a href="https://www.instagram.com/thesocialcirclex" target="_blank" aria-label="Instagram">
+                            <ion-icon name="logo-instagram"></ion-icon>
+                        </a>
+                        <a href="https://www.youtube.com/@socialcirclex" target="_blank" aria-label="YouTube">
+                            <ion-icon name="logo-youtube"></ion-icon>
+                        </a>
+                        <a href="mailto:admin@thesocialcircle.io" aria-label="Email">
+                            <ion-icon name="mail-outline"></ion-icon>
+                        </a>
+                    </div>
                 </div>
 
-                <div class="social-links">
-                    <a href="https://www.instagram.com/thesocialcirclex" target="_blank" class="social-icon"><ion-icon
-                            name="logo-instagram"></ion-icon></a>
-                    <a href="https://www.youtube.com/@socialcirclex" target="_blank" class="social-icon"><ion-icon
-                            name="logo-youtube"></ion-icon></a>
+                <!-- Column 2: Navigation -->
+                <div class="footer-col">
+                    <h4 class="footer-heading">Explore</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#work">Work</a></li>
+                        <li><a href="#philosophy">Agency</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Services -->
+                <div class="footer-col">
+                    <h4 class="footer-heading">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#content-creation">Content Creation</a></li>
+                        <li><a href="#influencer-networking">Influencer Network</a></li>
+                        <li><a href="#social-management">Social Management</a></li>
+                        <li><a href="#packages">Pricing</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Contact -->
+                <div class="footer-col">
+                    <h4 class="footer-heading">Get in Touch</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:admin@thesocialcircle.io">admin@thesocialcircle.io</a></li>
+                        <li><a href="#contact">Book a Consultation</a></li>
+                    </ul>
                 </div>
             </div>
-            <div style="text-align: center; color: rgba(255,255,255,0.1); font-size: 0.875rem;">
-                &copy; 2024 The Social Circle. All rights reserved.
+
+            <div class="footer-bottom-row">
+                <div class="copyright">
+                    &copy; 2026 The Social Circle. All rights reserved.
+                </div>
+                <div class="legal-links">
+                    <span class="est">EST. MMXXIV</span>
+                </div>
             </div>
         </div>
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            gsap.registerPlugin(ScrollTrigger);
+
+            // 1. Overlapping Text Logic (Philosophy Section)
+            const stackItems = gsap.utils.toArray('.services_title_item');
+            stackItems.forEach((item, index) => {
+                const outer = item.querySelector('.services_title_second_outer');
+                const inner = outer.querySelector('h2, h1');
+
+                gsap.set(outer, { x: '-100%' });
+                gsap.set(inner, { x: '100%' });
+
+                gsap.to([outer, inner], {
+                    scrollTrigger: {
+                        trigger: '#philosophy',
+                        start: 'top 80%',
+                        end: 'top 30%',
+                        scrub: 1.2,
+                    },
+                    x: '0%',
+                    ease: 'power2.inOut',
+                    stagger: index * 0.05
+                });
+            });
+
+            // 2. Stacking Card Effect
+            // The scaling effect has been removed to ensure solid visibility and reliable stacking.
+            // CSS position: sticky handles the deck effect natively.
+
+            // 3. Disciplines Elliptical Arc Reveal (Business Style)
+            const arcItems = document.querySelectorAll('.discipline-item');
+            const totalItems = arcItems.length;
+
+            function positionItems(progress) {
+                const radiusX = window.innerWidth * 0.35;
+                const radiusY = window.innerHeight * 0.5;
+
+                arcItems.forEach((item, index) => {
+                    // Items are spread out by 25 degrees for a smooth arc
+                    const itemAngleOffset = (index - (totalItems - 1) * progress) * 25;
+                    const rad = (itemAngleOffset * Math.PI) / 180;
+
+                    const x = Math.cos(rad) * radiusX + (window.innerWidth * 0.4);
+                    const y = Math.sin(rad) * radiusY;
+
+                    // Opacity & Active state based on vertical distance
+                    let opacity = 0.1;
+                    let scale = 0.8;
+                    const normalizedY = Math.abs(y) / radiusY;
+
+                    if (normalizedY < 0.15) {
+                        opacity = 1;
+                        scale = 1.2;
+                        item.classList.add('active');
+                    } else if (normalizedY < 0.7) {
+                        opacity = 1 - (normalizedY - 0.15) / 0.55;
+                        scale = 1.2 - (normalizedY * 0.4);
+                        item.classList.remove('active');
+                    } else {
+                        item.classList.remove('active');
+                    }
+
+                    gsap.to(item, {
+                        x: x,
+                        y: y,
+                        scale: scale,
+                        opacity: opacity,
+                        duration: 0.2,
+                        overwrite: true,
+                        ease: "power2.out"
+                    });
+                });
+            }
+
+            ScrollTrigger.create({
+                trigger: "#disciplines",
+                start: "top top",
+                end: "bottom bottom",
+                scrub: 1.2,
+                onUpdate: (self) => positionItems(self.progress)
+            });
+
+            positionItems(0);
+
+            window.addEventListener('resize', () => {
+                positionItems(ScrollTrigger.getById('disciplines')?.progress || 0);
+            });
+
+
+            // 4. Stats Counters
+            const animateCounter = (id, endValue) => {
+                gsap.to(id, {
+                    innerText: endValue,
+                    duration: 2,
+                    snap: { innerText: 1 },
+                    scrollTrigger: {
+                        trigger: '#results',
+                        start: 'top 80%',
+                    }
+                });
+            };
+
+            animateCounter('#stat-reach', 500);
+            animateCounter('#stat-partners', 20);
+            animateCounter('#stat-lift', 300);
+
+            // 5. Refined Video Reveal (3-Column Grid)
+            gsap.from('.f7-v-card', {
+                scrollTrigger: {
+                    trigger: '#content-creation',
+                    start: 'top 80%',
+                },
+                y: 100,
+                opacity: 0,
+                stagger: 0.15,
+                duration: 1.2,
+                ease: 'power4.out'
+            });
+
+            // 6. General reveal
+            gsap.utils.toArray('.f7-section .f7-h2, .f7-section .f7-grid, .f7-label').forEach(el => {
+                if (el.closest('.services_title_stack') || el.closest('.f7-arc-section') || el.id === 'results') return;
+
+                gsap.from(el, {
+                    scrollTrigger: {
+                        trigger: el,
+                        start: 'top 95%',
+                        toggleActions: 'play none none reverse'
+                    },
+                    y: 30,
+                    opacity: 0,
+                    duration: 1,
+                    ease: 'power3.out'
+                });
+            });
+        });
+    </script>
 </body>
+
 
 </html>

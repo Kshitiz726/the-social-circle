@@ -12,3 +12,9 @@ node_modules/
 # IDEs
 .vscode/
 .idea/
+
+# Redundant Downloader Files
+tsc/
+Business/
+*.zip
+guidelin.pdf
